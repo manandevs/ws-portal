@@ -1,4 +1,3 @@
-import React from 'react'
 import { SetupStep } from '../common/SetupStep'
 
 const WSCAT_SESSION_STREAM = `wscat -c ws://localhost:8080
