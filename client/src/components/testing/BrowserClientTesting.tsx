@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import InspectorBox from '../common/InspectorBox'
 
 const BrowserClientTesting = () => {
-  const [url, setUrl] = useState('ws://localhost:8080')
+  const [url, setUrl] = useState('https://ws-portal-rho.vercel.app/')
   const [message, setMessage] = useState('') // New message frame payload state
   const [logs, setLogs] = useState('Disconnected. Awaiting manual handshake lifecycle connection...')
   const [isConnected, setIsConnected] = useState(false)
