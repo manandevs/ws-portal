@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebSocket Client - Terminal Glow Edition</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .tech-mono {
+        font-family: 'Geist Mono', monospace;
+      }
+
+      /* Repeating linear gradient matching the side gutters */
+      .blueprint-pattern {
+        background-image: repeating-linear-gradient(
+          45deg,
+          #f3f4f6 0px,
+          #f3f4f6 2px,
+          transparent 2px,
+          transparent 10px
+        );
+      }
+
+      /* Premium Terminal Neon Glow Utilities */
+      .glow-text-green {
+        text-shadow:
+          0 0 12px rgba(34, 197, 94, 0.5),
+          0 0 2px rgba(34, 197, 94, 0.8);
+      }
+
+      .glow-box-green {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.15);
+      }
+    </style>
+  </head>
+
+  <body
+    class="relative flex min-h-screen items-stretch justify-center overflow-x-hidden bg-white select-none"
+  >
+    <div class="blueprint-pattern hidden w-12 shrink-0 border-r border-gray-200/80 md:block"></div>
+
+    <div class="w-full">
+      <div
+        class="blueprint-pattern hidden h-3 w-full shrink-0 border-b border-gray-200/80 md:block"
+      ></div>
+
+      <header class="juctify-between item-center flex gap-6 border border-gray-200/80 p-4">
+        <a
+          class="flex shrink-0 items-center gap-2 text-xl font-bold tracking-tighter text-gray-950"
+          aria-label="Home"
+          href="/"
+        >
+          <span>ws<span class="font-medium text-green-600">Portal</span></span>
+        </a>
+
+        <div class="flex items-center gap-6 max-md:hidden">
+          <a href="/plus" class="group relative px-2.5 py-0.5 text-sm font-semibold text-green-700">
+            <span
+              class="absolute inset-0 border border-dashed border-green-400/50 bg-green-50 transition-colors group-hover:bg-green-100"
+            ></span>
+            <span class="relative z-10">Console Plus</span>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              class="absolute top-[-2px] left-[-2px] fill-green-400"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z"></path>
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              class="absolute top-[-2px] right-[-2px] fill-green-400"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z"></path>
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              class="absolute bottom-[-2px] left-[-2px] fill-green-400"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z"></path>
+            </svg>
+            <svg
+              width="5"
+              height="5"
+              viewBox="0 0 5 5"
+              class="absolute right-[-2px] bottom-[-2px] fill-green-400"
+            >
+              <path d="M2 0h1v2h2v1h-2v2h-1v-2h-2v-1h2z"></path>
+            </svg>
+          </a>
+        </div>
+      </header>
+
+      <div
+        class="blueprint-pattern hidden h-12 w-full shrink-0 border-b border-gray-200/80 md:block"
+      ></div>
+
+      <div class="relative z-10 flex flex-col border border-gray-100 bg-white p-6">
+        <div class="relative mb-4 border border-gray-200 bg-white/50 p-2 backdrop-blur-sm">
+          <div
+            class="tech-mono mb-4 text-xs font-medium tracking-tight text-green-600 drop-shadow-[0_0_6px_rgba(22,163,74,0.4)] select-all"
+          >
+            ws.readyState === WebSocket.OPEN // full-duplex framing protocol active
+          </div>
+
+          <h1
+            class="mb-6 text-4xl font-medium tracking-tighter text-balance text-gray-950 md:text-6xl"
+          >
+            Rapidly stream event packets without ever dropping your socket.
+          </h1>
+
+          <div class="mt-6 border-t border-dashed border-gray-200 pt-4">
+            <div class="tech-mono mb-2 text-xs tracking-tight text-gray-400 select-all">
+              payload.encoding == "UTF-8" // framing configuration
+            </div>
+            <p class="max-w-3xl text-base leading-relaxed text-gray-600 md:text-lg">
+              A persistent full-duplex TCP pipeline packed with frames like
+              <span
+                class="tech-mono rounded border border-green-200/60 bg-green-100 px-1.5 py-0.5 text-sm font-medium text-green-700 shadow-[0_0_8px_rgba(34,197,94,0.1)]"
+                >onopen</span
+              >,
+              <span
+                class="tech-mono rounded border border-green-200/60 bg-green-100 px-1.5 py-0.5 text-sm font-medium text-green-700 shadow-[0_0_8px_rgba(34,197,94,0.1)]"
+                >onmessage</span
+              >,
+              <span
+                class="tech-mono rounded border border-green-200/60 bg-green-100 px-1.5 py-0.5 text-sm font-medium text-green-700 shadow-[0_0_8px_rgba(34,197,94,0.1)]"
+                >send-payload</span
+              >
+              and
+              <span
+                class="tech-mono rounded border border-green-200/60 bg-green-100 px-1.5 py-0.5 text-sm font-medium text-green-700 shadow-[0_0_8px_rgba(34,197,94,0.1)]"
+                >binary-blob</span
+              >
+              that can be composed to build any real-time engine, directly over your network.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <div class="mb-4 bg-gray-50/70">
+            <div class="flex items-center justify-between gap-4 border border-gray-200/80 p-1 pl-2">
+              <input
+                placeholder="Filter active message channels..."
+                type="text"
+                class="h-full w-full bg-transparent text-sm text-gray-700 placeholder-gray-400 outline-none"
+              />
+
+              <button
+                class="flex h-fit w-fit items-center justify-center bg-[#16a34a] px-4 py-2 text-white shadow-[inset_0px_-4px_4px_0px_#4ade80,0px_0px_0px_2px_#bbf7d0,0px_4px_0px_0px_#15803d] duration-[250ms] hover:translate-y-[0.25em] active:translate-y-[0.5em] active:shadow-[inset_0px_-4px_4px_0px_#4ade80,0px_0px_0px_2px_#bbf7d0]"
+              >
+                Connect
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="tech-mono glow-box-green relative w-full overflow-hidden border border-neutral-900 bg-neutral-950 p-4 text-neutral-200 shadow-xl"
+          >
+            <span
+              class="z-10 border border-green-500/20 px-2 py-0.5 text-xs font-medium tracking-wide text-green-400"
+              >ws session audit</span
+            >
+
+            <div
+              class="flex h-24 w-full flex-col gap-1 border border-neutral-800/60 bg-neutral-900/30 p-2"
+            >
+              <span class="glow-text-green text-sm font-medium tracking-wide text-green-400/90"
+                >body active</span
+              >
+              <span class="text-xs tracking-wider text-neutral-600"
+                >ws://localhost:8080 - Streaming...</span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="blueprint-pattern hidden h-12 w-full shrink-0 border-t border-gray-200/80 md:block"
+      ></div>
+    </div>
+
+    <div class="blueprint-pattern hidden w-12 shrink-0 border-l border-gray-200/80 md:block"></div>
+
+    <script>
+      const socket = new WebSocket('ws://localhost:8080')
+    </script>
+  </body>
+</html>
